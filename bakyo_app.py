@@ -34,7 +34,7 @@ if html_code:
     # DataFrameを表示
     st.dataframe(df)
 
-    csv = convert_df(df_DWLD__)
+    csv = convert_df(df)
 
     st.download_button(
         label="SBIインポートリスト",
