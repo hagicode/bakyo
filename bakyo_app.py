@@ -8,6 +8,12 @@ st.title('HTMLテキスト抽出とCSVダウンロード')
 # ユーザーがHTMLコードを入力
 html_code = st.text_area('HTMLコードを入力してください')
 
+#@st.cache
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv(index=False, header=False).encode("utf_8_sig")
+
+
 if html_code:
     # BeautifulSoupオブジェクトを作成
     soup = BeautifulSoup(html_code, 'html.parser')
@@ -28,6 +34,11 @@ if html_code:
     # DataFrameを表示
     st.dataframe(df)
 
-    # CSVファイルとしてダウンロード
-    csv = df.to_csv(index=False, encoding='cp932', errors='ignore')
-    st.download_button(label='CSVファイルをダウンロード', data=csv, file_name='data.csv', mime='text/csv')
+    csv = convert_df(df_DWLD__)
+
+    st.download_button(
+        label="SBIインポートリスト",
+        data=csv,
+        file_name=dt_now_jst_aware.strftime('%y%m%d')+'場況.csv',
+        mime='text/csv',
+    )
