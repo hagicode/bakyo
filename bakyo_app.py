@@ -20,10 +20,10 @@ if html_code:
 
     # ヘッダーとデータ部分に分割
     header = elements[:6]
-    rows = [elements[i:i+6] for i in range(6, len(elements), 6)]
+    rows = [elements[i:i+7] for i in range(6, len(elements), 7)]
 
     # DataFrameを作成
-    df = pd.DataFrame(rows, columns=header)
+    df = pd.DataFrame(rows, columns=header+ ["金額2"])
 
     # DataFrameを表示
     st.dataframe(df)
