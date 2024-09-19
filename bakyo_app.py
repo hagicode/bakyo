@@ -39,7 +39,20 @@ if html_code:
     # DataFrameを表示
     st.dataframe(df)
 
-    csv = convert_df(df)
+    df["C1(コード)"] = df["コード"]
+    df["C2"] = np.nan
+    df["C3(市場)"] = "TKY"
+    df["C4"] = np.nan
+    df["C5"] = np.nan
+    df["C6"] = np.nan
+    df["C7"] = np.nan
+    df["C8"] = np.nan
+
+    df_= df[["C1(コード)","C2","C3(市場)","C4","C5","C6","C7","C8"]]
+    
+    # DataFrameを表示
+    st.dataframe(df_)
+    csv = convert_df(df_)
 
     st.download_button(
         label="SBIインポートリスト",
