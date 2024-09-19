@@ -5,6 +5,7 @@ import datetime
 import time
 import requests
 from datetime import date, timedelta
+import numpy as np
 
 # Streamlitアプリの設定
 st.title('HTMLテキスト抽出とCSVダウンロード')
