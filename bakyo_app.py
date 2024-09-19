@@ -13,6 +13,9 @@ def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df.to_csv(index=False, header=False).encode("utf_8_sig")
 
+dt_now_jst_aware = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))
+tgt_month = dt_now_jst_aware.strftime('%Y-%m')
+last_month =(dt_now_jst_aware - relativedelta(months=1)).strftime('%Y-%m')
 
 if html_code:
     # BeautifulSoupオブジェクトを作成
