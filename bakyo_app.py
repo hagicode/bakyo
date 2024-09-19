@@ -1,6 +1,10 @@
 import streamlit as st
 from bs4 import BeautifulSoup
 import pandas as pd
+import datetime
+import time
+import requests
+from datetime import date, timedelta
 
 # Streamlitアプリの設定
 st.title('HTMLテキスト抽出とCSVダウンロード')
