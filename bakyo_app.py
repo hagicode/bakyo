@@ -29,5 +29,5 @@ if html_code:
     st.dataframe(df)
 
     # CSVファイルとしてダウンロード
-    csv = df.to_csv(index=False, encoding='cp932')
+    csv = df.to_csv(index=False, encoding='cp932', errors='ignore')
     st.download_button(label='CSVファイルをダウンロード', data=csv, file_name='data.csv', mime='text/csv')
